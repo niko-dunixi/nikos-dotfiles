@@ -3,7 +3,12 @@ set -euxo pipefail
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 mkdir -p "${HOME}/shellhacks.d"
-grep "#SHELLHACKSD" "~/.profile" || {
-  echo 'export PATH="${PATH}:${HOME}/shellhacks.d" #SHELLHACKSD' >> ~/.profile
+grep "#SHELLHACKSD" ~/.zshrc || {
+cat >> ~/.zshrc <<EOF
+#SHELLHACKSD
+for shellhack in \${HOME}/shellhacks.d/*; do
+  source "\${shellhack}"
+done
+EOF
 }
-rsync -a --delete shellhacks.d "${HOME}/shellhacks.d"
+rsync -a --delete shellhacks.d "${HOME}"
