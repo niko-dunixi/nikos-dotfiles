@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eux
 mkdir -p ${HOME}/cronscripts.d
-rsync -a --delete cronscripts.d "${HOME}/cronscripts.d"
+rsync -a --delete cronscripts.d "${HOME}"
 crontab <<-EOF
 # ┌───────────── minute (0 - 59)
 # │ ┌───────────── hour (0 - 23)
@@ -14,5 +14,6 @@ crontab <<-EOF
 # * * * * * <command to execute>
 10 * * * * ${HOME}/cronscripts.d/brew-update-upgrade.sh
 15 * * * * ${HOME}/cronscripts.d/rust-update.sh
+20 * * * * ${HOME}/cronscripts.d/lunarvim-update.sh
 EOF
 crontab -l
