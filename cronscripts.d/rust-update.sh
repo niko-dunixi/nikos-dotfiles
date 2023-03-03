@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 mkdir -p /Users/nikodunixi/logs/cron
+. "$HOME/.cargo/env"
 (
   set -ex
   rustup update
