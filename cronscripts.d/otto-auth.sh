@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 mkdir -p /Users/nikodunixi/logs/cron
-export PATH="${PATH}:/opt/homebrew/bin/otto"
+export PATH="${PATH}:/opt/homebrew/bin/"
 cd ${HOME}/tilt-home
 (
   set -ex
