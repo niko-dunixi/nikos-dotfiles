@@ -16,6 +16,6 @@ crontab <<-EOF
 15 * * * * ${HOME}/cronscripts.d/rust-update.sh
 20 * * * * ${HOME}/cronscripts.d/lunarvim-update.sh
 0 9 * * * ${HOME}/cronscripts.d/otto-housekeeping.sh
-0 9,13 * * * ${HOME}/cronscripts.d/otto-auth.sh
+0 11,13 * * 1-5 ${HOME}/cronscripts.d/otto-auth.sh
 EOF
 crontab -l
